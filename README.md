@@ -2,6 +2,8 @@
 
 ##Backend API
 - API testing done using POSTMAN
+![IMG-20230924-WA0003-01](https://github.com/Ajaydeep123/AdmitKard_assignment/assets/49810031/af073ba1-2480-4e61-9500-a561756d0c11)
+![IMG-20230924-WA0002-01](https://github.com/Ajaydeep123/AdmitKard_assignment/assets/49810031/6b4ad23a-c512-4328-827e-acc4a3d25fb4)
 
 ## Features
 - Effective and secure login using OTP
