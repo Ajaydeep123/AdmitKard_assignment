@@ -10,18 +10,24 @@ function App() {
   const [ph, setPh] = useState("");
   const [loading, setLoading] = useState(false);
   const [showOTP, setShowOTP] = useState(false);
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(false);
 
 const onSignup = async () =>{
 
   setLoading(true);
   if(!ph) return;
   const result = await sendOtp({phone:ph});
+  if(result.success){
   setLoading(false);
   setShowOTP(true);
   toast.success("OTP sent successfully!");
   console.log(ph);
   sessionStorage.setItem("phonenumber", ph);
+  }else{
+  toast.error("Unable to send OTP");
+        
+  setLoading(false);
+  }
 }
 
 const resendOtp = async () =>{
@@ -44,6 +50,7 @@ const onOTPVerify = async () =>{
     setLoading(false);
     setOtp("");
     toast.success("OTP verified successfully!");
+    setUser(true);
   }else{
     toast.error("Invalid OTP");
         console.log(err);
@@ -119,7 +126,7 @@ const onOTPVerify = async () =>{
                 <OtpInput
                   value={otp}
                   onChange={setOtp}
-                  OTPLength={6}
+                  OTPLength={4}
                   otpType="number"
                   disabled={false}
                   autoFocus

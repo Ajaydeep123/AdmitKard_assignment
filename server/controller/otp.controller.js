@@ -23,7 +23,6 @@ const sendOtp = async (req,res) =>{
       success: false,
       message: `Error in sending otp: ${err.message}`,
     })
-    .then(verification => console.log(verification.status));
     }
 };
 

@@ -1,6 +1,6 @@
-const SERVER_URL = "http://localhost:3000/";
+const SERVER_URL = "http://localhost:3000";
 
-const sendOtp = async () => {
+const sendOtp = async ({phone}) => {
   try {
     const response = await fetch(`${SERVER_URL}/send-otp`, {
       method: "POST",
@@ -9,7 +9,7 @@ const sendOtp = async () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        phoneNumber: `${phone}`,
+        phoneNumber: phone,
       }),
     });
 
@@ -22,7 +22,7 @@ const sendOtp = async () => {
 };
 
 
-const verifyOtp = async () => {
+const verifyOtp = async ({phone,otp}) => {
   try {
     const response = await fetch(`${SERVER_URL}/verify-otp`, {
       method: "POST",
